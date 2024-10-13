@@ -6,10 +6,22 @@ using UnityEngine.XR.ARSubsystems;
 
 public class FurniturePlacer : MonoBehaviour
 {
-    // 가구 프리팹 관리
+    [Header("의자 프리팹")]
     public GameObject designChairPrefab;
     public GameObject modernChairPrefab;
     public GameObject officeChairPrefab;
+    public GameObject couchPrefab;
+    [Space]
+    [Header("책상 프리팹")]
+    public GameObject computerDeskPrefab;
+    public GameObject makeUpDeskPrefab;
+    public GameObject modernDeskPrefab;
+    public GameObject woodDeskPrefab;
+    [Space]
+    [Header("기타 프리팹")]
+    public GameObject bedPrefab;
+    public GameObject bookShelfPrefab;
+    public GameObject lampPrefab;
 
     public Dictionary<string, GameObject> furniturePrefabs = new Dictionary<string, GameObject>();
 
@@ -26,6 +38,16 @@ public class FurniturePlacer : MonoBehaviour
         furniturePrefabs.Add("DesignChair", designChairPrefab);
         furniturePrefabs.Add("ModernChair", modernChairPrefab);
         furniturePrefabs.Add("OfficeChair", officeChairPrefab);
+        furniturePrefabs.Add("Couch", couchPrefab);
+
+        furniturePrefabs.Add("ComputerDesk", computerDeskPrefab);
+        furniturePrefabs.Add("MakeUpDesk", makeUpDeskPrefab);
+        furniturePrefabs.Add("ModernDesk", modernDeskPrefab);
+        furniturePrefabs.Add("WoodDesk", woodDeskPrefab);
+
+        furniturePrefabs.Add("Bed", bedPrefab);
+        furniturePrefabs.Add("BookShelf", bookShelfPrefab);
+        furniturePrefabs.Add("Lamp", lampPrefab);
     }
 
     private void Update()
