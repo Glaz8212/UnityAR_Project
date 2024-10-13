@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -56,6 +57,14 @@ public class FurniturePlacer : MonoBehaviour
         {
             Debug.Log("버튼 입력");
             Touch touch = Input.GetTouch(0);
+
+            // 가끔씩 터치가 두 번 발생하는 것 같은 경우 발생
+            // 터치가 UI에서 발생한 경우 무시
+            // 영향을 받는 UI가 있을 경우 True -> Return
+            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            {
+                return;
+            }
 
             // 터치된 위치에 ar plane이 존재하면 가구 배치
             if (raycastManager.Raycast(touch.position, hits, TrackableType.PlaneWithinBounds))
