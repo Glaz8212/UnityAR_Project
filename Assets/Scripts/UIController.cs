@@ -5,13 +5,14 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     public GameObject furnitureTypePanel; // 가구 종류 패널
-    public GameObject furnitureListPanel; // 가구 목록 패널
+    public GameObject chairListPanel; // 가구 목록 패널
+    public GameObject 
     public GameObject furnitureButton;
 
     private void Start()
     {
         furnitureTypePanel.SetActive(false);
-        furnitureListPanel.SetActive(false);
+        chairListPanel.SetActive(false);
     }
 
     public void TypePanel()
@@ -25,12 +26,12 @@ public class UIController : MonoBehaviour
     {
         // 종류 선택 후 목록 선택 패널
         furnitureTypePanel.SetActive(false);
-        furnitureListPanel.SetActive(true);
+        chairListPanel.SetActive(true);
     }
 
     public void HidePanel()
     {
-        furnitureListPanel.SetActive(false);
+        chairListPanel.SetActive(false);
         furnitureTypePanel.SetActive(false);
         furnitureButton.SetActive(true);
     }
