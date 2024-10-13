@@ -473,14 +473,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 740601947}
         m_TargetAssemblyTypeName: FurniturePlacer, Assembly-CSharp
-        m_MethodName: SelectOfficeChair
-        m_Mode: 1
+        m_MethodName: SelectFurniture
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: OfficeChair
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &209661211
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 520835149}
+      - m_Target: {fileID: 520835154}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: ListPanel
         m_Mode: 1
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 520835149}
+      - m_Target: {fileID: 520835154}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
         m_MethodName: TypePanel
         m_Mode: 1
@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 520835152}
   - component: {fileID: 520835151}
   - component: {fileID: 520835150}
-  - component: {fileID: 520835149}
+  - component: {fileID: 520835154}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1147,20 +1147,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &520835149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 520835148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 894088a79f38b5a47b8e9989a97886bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  furnitureTypePanel: {fileID: 1828877377}
-  furnitureListPanel: {fileID: 1605927519}
 --- !u!114 &520835150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1246,6 +1232,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &520835154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520835148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894088a79f38b5a47b8e9989a97886bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  furnitureTypePanel: {fileID: 1828877377}
+  furnitureListPanel: {fileID: 1605927519}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 0}
+  m_PlanePrefab: {fileID: 4991179259908752831, guid: 6ede710cff5294e45a89e4a2afbfb176, type: 3}
   m_DetectionMode: -1
 --- !u!114 &740601947
 MonoBehaviour:
@@ -1419,6 +1419,7 @@ MonoBehaviour:
   modernChairPrefab: {fileID: 643675999217616746, guid: f636ee911742bc34e8227ded4f9550ce, type: 3}
   officeChairPrefab: {fileID: 244975874763721993, guid: dca876f23bf892b4cafc06e7d0f186de, type: 3}
   raycastManager: {fileID: 740601948}
+  UIController: {fileID: 520835154}
 --- !u!114 &740601948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2050,14 +2051,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 740601947}
         m_TargetAssemblyTypeName: FurniturePlacer, Assembly-CSharp
-        m_MethodName: SelectDesignChair
-        m_Mode: 1
+        m_MethodName: SelectFurniture
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: DesignChair
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1633744309
@@ -2396,14 +2397,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 740601947}
         m_TargetAssemblyTypeName: FurniturePlacer, Assembly-CSharp
-        m_MethodName: SelectModernChair
-        m_Mode: 1
+        m_MethodName: SelectFurniture
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: ModernChair
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1951558729

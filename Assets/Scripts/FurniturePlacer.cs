@@ -7,9 +7,9 @@ using UnityEngine.XR.ARSubsystems;
 public class FurniturePlacer : MonoBehaviour
 {
     // 가구 프리팹 관리
-    public GameObject designChairPrefab;  
-    public GameObject modernChairPrefab;  
-    public GameObject officeChairPrefab; 
+    public GameObject designChairPrefab;
+    public GameObject modernChairPrefab;
+    public GameObject officeChairPrefab;
 
     public Dictionary<string, GameObject> furniturePrefabs = new Dictionary<string, GameObject>();
 
@@ -22,6 +22,7 @@ public class FurniturePlacer : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("DICTIONARY에 프리팹 추가");
         furniturePrefabs.Add("DesignChair", designChairPrefab);
         furniturePrefabs.Add("ModernChair", modernChairPrefab);
         furniturePrefabs.Add("OfficeChair", officeChairPrefab);
@@ -29,8 +30,9 @@ public class FurniturePlacer : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && selectedPrefab != null)
         {
+            Debug.Log("버튼 입력");
             Touch touch = Input.GetTouch(0);
 
             // 터치된 위치에 ar plane이 존재하면 가구 배치
@@ -38,22 +40,22 @@ public class FurniturePlacer : MonoBehaviour
             {
                 Pose hitPose = hits[0].pose;
 
-                if (selectedPrefab != null)
-                {
-                    Instantiate(selectedPrefab, hitPose.position, hitPose.rotation);
-                    selectedPrefab = null;  // 배치 후 초기화
-
-                    UIController.HidePanel();
-                }
+                Instantiate(selectedPrefab, hitPose.position, hitPose.rotation);
+                selectedPrefab = null;  // 배치 후 초기화
             }
         }
     }
 
     public void SelectFurniture(string furnitureName)
     {
+        Debug.Log("Select 시작: " + furnitureName);
         if (furniturePrefabs.ContainsKey(furnitureName))
         {
             selectedPrefab = furniturePrefabs[furnitureName];
+            Debug.Log("가구 선택: " + furnitureName);
+
+            UIController.HidePanel();
+            Debug.Log("패널 숨기기");
         }
     }
 }
