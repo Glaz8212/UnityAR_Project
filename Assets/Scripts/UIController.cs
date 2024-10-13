@@ -6,6 +6,7 @@ public class UIController : MonoBehaviour
 {
     public GameObject furnitureTypePanel; // 가구 종류 패널
     public GameObject furnitureListPanel; // 가구 목록 패널
+    public GameObject furnitureButton;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class UIController : MonoBehaviour
     {
         // 가구 종류 선택 패널
         furnitureTypePanel.SetActive(true);
+        furnitureButton.SetActive(false);
     }
 
     public void ListPanel()
@@ -30,5 +32,6 @@ public class UIController : MonoBehaviour
     {
         furnitureListPanel.SetActive(false);
         furnitureTypePanel.SetActive(false);
+        furnitureButton.SetActive(true);
     }
 }
