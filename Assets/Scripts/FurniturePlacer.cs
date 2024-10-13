@@ -6,14 +6,26 @@ using UnityEngine.XR.ARSubsystems;
 
 public class FurniturePlacer : MonoBehaviour
 {
-    public GameObject designChairPrefab;
-    public GameObject modernChairPrefab;
-    public GameObject officeChairPrefab;
+    // 가구 프리팹 관리
+    public GameObject designChairPrefab;  
+    public GameObject modernChairPrefab;  
+    public GameObject officeChairPrefab; 
+
+    public Dictionary<string, GameObject> furniturePrefabs = new Dictionary<string, GameObject>();
 
     private GameObject selectedPrefab;
 
     public ARRaycastManager raycastManager;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
+    public UIController UIController;
+
+    private void Start()
+    {
+        furniturePrefabs.Add("DesignChair", designChairPrefab);
+        furniturePrefabs.Add("ModernChair", modernChairPrefab);
+        furniturePrefabs.Add("OfficeChair", officeChairPrefab);
+    }
 
     private void Update()
     {
@@ -30,23 +42,18 @@ public class FurniturePlacer : MonoBehaviour
                 {
                     Instantiate(selectedPrefab, hitPose.position, hitPose.rotation);
                     selectedPrefab = null;  // 배치 후 초기화
+
+                    UIController.HidePanel();
                 }
             }
         }
     }
 
-    public void SelectDesignChair()
+    public void SelectFurniture(string furnitureName)
     {
-        selectedPrefab = designChairPrefab;
-    }
-
-    public void SelectModernChair()
-    {
-        selectedPrefab = modernChairPrefab;
-    }
-
-    public void SelectOfficeChair()
-    {
-        selectedPrefab = officeChairPrefab;
+        if (furniturePrefabs.ContainsKey(furnitureName))
+        {
+            selectedPrefab = furniturePrefabs[furnitureName];
+        }
     }
 }

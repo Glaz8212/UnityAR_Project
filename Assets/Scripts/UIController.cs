@@ -25,4 +25,10 @@ public class UIController : MonoBehaviour
         furnitureTypePanel.SetActive(false);
         furnitureListPanel.SetActive(true);
     }
+
+    public void HidePanel()
+    {
+        furnitureListPanel.SetActive(false);
+        furnitureTypePanel.SetActive(false);
+    }
 }
