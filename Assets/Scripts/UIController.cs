@@ -29,6 +29,7 @@ public class UIController : MonoBehaviour
     {
         // 모든 패널 비활성화
         HidePanel();
+        furnitureButton.SetActive(false);
         // 선택된 패널만 활성화
         panelToShow.SetActive(true);
     }
