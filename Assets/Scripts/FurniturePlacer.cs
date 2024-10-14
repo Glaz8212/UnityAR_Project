@@ -95,7 +95,6 @@ public class FurniturePlacer : MonoBehaviour
 
     public void SelectFurniture(string furnitureName)
     {
-        Debug.Log("Select Ω√¿€: " + furnitureName);
         if (furniturePrefabs.ContainsKey(furnitureName))
         {
             selectedPrefab = furniturePrefabs[furnitureName];
