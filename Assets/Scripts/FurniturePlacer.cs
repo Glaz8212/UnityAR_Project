@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using TMPro;
 
 public class FurniturePlacer : MonoBehaviour
 {
@@ -24,16 +25,18 @@ public class FurniturePlacer : MonoBehaviour
     public GameObject bookShelfPrefab;
     public GameObject lampPrefab;
 
+    // 가구 목록 관리
     public Dictionary<string, GameObject> furniturePrefabs = new Dictionary<string, GameObject>();
 
+    // 가구 배치 관련
     private GameObject selectedPrefab;
     private GameObject placedFurniture;
-    private bool isRotating = false;
 
     public ARRaycastManager raycastManager;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     public UIController UIController;
+
 
     private void Start()
     {
@@ -74,7 +77,7 @@ public class FurniturePlacer : MonoBehaviour
                 Pose hitPose = hits[0].pose;
 
                 placedFurniture = Instantiate(selectedPrefab, hitPose.position, hitPose.rotation);
-                selectedPrefab = null;  // 배치 후 초기화
+                selectedPrefab = null;  // 배치 후 초기화                
             }
         }
 
