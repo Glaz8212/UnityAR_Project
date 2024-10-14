@@ -27,6 +27,8 @@ public class FurniturePlacer : MonoBehaviour
     public Dictionary<string, GameObject> furniturePrefabs = new Dictionary<string, GameObject>();
 
     private GameObject selectedPrefab;
+    private GameObject placedFurniture;
+    private bool isRotating = false;
 
     public ARRaycastManager raycastManager;
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -71,8 +73,19 @@ public class FurniturePlacer : MonoBehaviour
             {
                 Pose hitPose = hits[0].pose;
 
-                Instantiate(selectedPrefab, hitPose.position, hitPose.rotation);
+                placedFurniture = Instantiate(selectedPrefab, hitPose.position, hitPose.rotation);
                 selectedPrefab = null;  // 배치 후 초기화
+            }
+        }
+
+        if (placedFurniture != null && Input.touchCount == 1)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Moved)
+            {
+                float rotationSpeed = 0.1f;
+                placedFurniture.transform.Rotate(0, touch.deltaPosition.x * rotationSpeed, 0);
             }
         }
     }
