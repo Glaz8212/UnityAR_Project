@@ -12,13 +12,23 @@ public class ColorChanger : MonoBehaviour
 
     public void SelectColor(string hexColor)
     {
+        Debug.Log(" 색상 선택");
+
         Color newColor;
         if (ColorUtility.TryParseHtmlString(hexColor, out newColor))
         {
             selectedColor = newColor;
             isColorSelected = true;
-            
+
+            Debug.Log(selectedColor + "색상선택");
+
             uicontroller.HidePanel();
+
+            Debug.Log("패널 숨기기");
+        }
+        else
+        {
+            Debug.LogError("Invalid color string: " + hexColor);  // 색상 변환이 실패했을 경우 로그 추가
         }
     }
 
@@ -47,6 +57,7 @@ public class ColorChanger : MonoBehaviour
                     {
                         objectRenderer.material.color = selectedColor;
                         isColorSelected = false;
+                        Debug.Log("오브젝트 컬러" + selectedColor + "로 변경");
                     }
                 }
             }
